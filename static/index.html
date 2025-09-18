@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive RAG Demo</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Interactive RAG Demo 🔬</h1>
+            <p>MongoDB + Voyage AI + Ollama</p>
+        </header>
+
+        <section class="workflow-section">
+            <h2>1. Document Ingestion</h2>
+            <div class="step">
+                <h3>Step 1.1: Upload & Chunk Document</h3>
+                <div class="controls">
+                    <input type="file" id="documentUpload" accept=".txt,.md">
+                    <button id="runChunkingBtn">Run Chunking</button>
+                </div>
+                <div class="output-panel" id="chunkingOutput"><pre><code>Output will appear here...</code></pre></div>
+            </div>
+            <div class="step">
+                <h3>Step 1.2: Embed & Insert Chunks</h3>
+                <div class="controls">
+                    <button id="runEmbeddingInsertionBtn" disabled>Run Embedding & Insertion</button>
+                    <div id="insertionProgress"></div>
+                </div>
+                <div class="output-panel wide" id="embeddingInsertionOutput"><pre><code>Outputs will stream here...</code></pre></div>
+            </div>
+        </section>
+
+        <section class="workflow-section">
+            <h2>2. Query Processing</h2>
+            <div class="query-input-area">
+                <input type="text" id="queryInput" placeholder="Ask a question about your documents...">
+            </div>
+            <div class="toggles">
+                 <label class="switch">
+                    <input type="checkbox" id="hybridSearchToggle">
+                    <span class="slider"></span>
+                </label>
+                <span>Hybrid Search (Conceptual)</span>
+
+                <label class="switch">
+                    <input type="checkbox" id="rerankingToggle">
+                    <span class="slider"></span>
+                </label>
+                <span>Reranking</span>
+            </div>
+             <div class="controls">
+                <button id="runQueryBtn">Run Full Query Pipeline</button>
+            </div>
+
+            <div class="step">
+                <h3>Step 2.1: Embed Query</h3>
+                <div class="output-panel" id="queryEmbeddingOutput"><pre><code>Output will appear here...</code></pre></div>
+            </div>
+            <div class="step">
+                <h3>Step 2.2: Retrieve from MongoDB</h3>
+                <div class="output-panel wide" id="retrievalOutput"><pre><code>Output will appear here...</code></pre></div>
+            </div>
+            <div class="step" id="rerankingStep" style="display: none;">
+                <h3>Step 2.3: Rerank with Voyage AI</h3>
+                <div class="output-panel wide" id="rerankingOutput"><pre><code>Output will appear here...</code></pre></div>
+            </div>
+            <div class="step">
+                <h3 id="promptStepTitle">Step 2.4: Construct LLM Prompt</h3>
+                <div class="output-panel wide" id="promptOutput"><pre><code>Output will appear here...</code></pre></div>
+            </div>
+            <div class="step">
+                <h3 id="generationStepTitle">Step 2.5: Final Generation from LLM</h3>
+                <div class="final-answer-panel" id="finalAnswerOutput">Final answer will appear here...</div>
+            </div>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
