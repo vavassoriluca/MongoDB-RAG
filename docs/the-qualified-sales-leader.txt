@@ -1,0 +1,423 @@
+The Qualified Sales Leader (Book Summary)
+September 26, 2021 Jeremey Donovan
+
+The Qualified Sales Leader: Proven Lessons from a Five Time CRO by John McMahon
+
+Foreword by Dev Ittycheria CEO of MongoDB
+
+[Unsuccessful] companies do not know who their ideal customer profile is, let alone how to pursue them; are not clear on the type of salespeople they should hire; have not built a prescribed sales process with measurable steps; have no discernible qualification methodology to understand where a deal is or how much work is left to do; and do little to hold salespeople accountable to completing each step in the process, so they cut corners and end up with bad outcomes.
+Part I The QBR
+
+1 Introduction
+
+In a forecast review, reps often find it difficult to be completely honest about their account situations.
+The QBR should be utilized to coach reps and analyze their sales knowledge and sales skills.
+Too often, reps are faced with massive pressure to present a forecast with a high likelihood of quota achievement.
+The QBR shines a white, hot spotlight on each rep’s capability to build pipeline, qualify opportunities, and sell effectively.
+The combination of” happy ears,” rose-colored glasses, and sandbagging efforts forces managers to qualify the accuracy of forecasts by listening to fictional stories and searching for the truth in the forecasted opportunities.
+2 Shannon
+
+(no highlights for this chapter)
+
+3 Carlos
+
+(no highlights for this chapter)
+
+4 Kathleen
+
+(no highlights for this chapter)
+
+5 Hannlin
+
+(no highlights for this chapter)
+
+6 Same Scenario, Different Rep
+
+I had several questions in mind:
+Did they have a coach or a Champion?
+What information did they lack?
+Why did the customer have to buy?
+Who had final budget approval?
+Who controlled the deal?
+What is the urgency to buy?
+How will the customer justify the purchase?
+What is the customer’s evaluation process?
+Were they winning or losing?
+Were they in control?
+7 The Roll Up
+
+(no highlights for this chapter)
+
+8 Meeting with the CEO
+
+A sales force needs to implement foundational methods and realize specific metrics before they can scale:
+A measurable sales process
+A means to analyze the sales process and effectiveness of the sales force
+Consistency and repeatability in rep performance across the salesforce with:
+An increasing average new deal size
+An expanding up-sell deal size from existing customers
+A measurable improvement in quarter-to-quarter average sales productivity
+Stop confusing activities with accomplishment. Stop pushing reps to rush through the sales process. Master the customer conversation with specific personas and use cases. Understand how to sell business value, using a repeatable process. Learn to qualify deal advancement issues in account situations. Coach reps on how to control an opportunity. Understand how to forecast accurately.
+Part II The Managers
+
+9 First Line Managers
+
+Without sales leadership training, the Forego managers would be lacking the knowledge:
+To recruit grade A players
+To assess each reps’ strengths and weaknesses
+To train the reps on what to do. The knowledge of each step of the sales process
+To coach the reps on how to do it. The skills to execute steps in the sales process
+To utilize a methodology to quickly analyze deal advancement and account scenarios
+To forecast accurately
+To understand the difference between managing and leading
+Activity metrics without an association to indicators of deal advancement are hollow KPIs and are useless in accurately forecasting outcomes.
+10 Andy
+
+(no highlights for this chapter)
+
+11 Jim
+
+(no highlights for this chapter)
+
+12 The Other First Line Managers
+
+[Managers must educate] their reps on how to prospect, build a pipeline of qualified deals, understand and use the sales process, prepare themselves for their next meeting, or analyze their sales calls.
+13 Where the QBR Went Wrong
+
+Main reasons for having a forecast session at a QBR?
+to figure out how effective our reps are at selling.
+to better understand our competitions’ strategies in our potential accounts
+to identify the product and support issues we have.
+14 Manager Priorities
+
+Most things were unimportant because many people ask you to do things for their reasons. They wanted to look busy.
+Compensation plans are meant to drive a certain behavior. The comp plan should drive sales managers to do what is fundamentally necessary to help their people maximize sales.
+I quickly realized that I was paid to recruit, train, and develop my people to maximize sales and so they could eventually take my place when I get promoted.
+15 Explaining the Basics
+
+(no highlights for this chapter)
+
+16 The Basics
+
+Basic # 1: A Common Vocabulary – “ The team must adopt a common vocabulary for all your sales terminology.
+Basic # 2: Listening – Listen with the intent to understand — not the intent to reply.
+Basic # 3: Be HERE (Present)
+Basic # 4: Intuition – To be an effective sales leader, you need to use your intuition to help you perceive the situation. Intuition is an effective ally when used to qualify opportunities coach reps and sell.
+Basic # 5 Self Awareness
+Basic # 6: Transformational Mindset
+You want your reps to be comfortable giving bad news, early so we have enough time to remedy the situation.
+It all starts with understanding why they joined your company. What they hoped to achieve when they made the decision to work for you. Sit down with them and document their annual goals, financial goals and career goals.
+It’s your job to coach your reps based on careful analysis of account scenarios and their skillsets. The interaction needs to be an equal exchange: coaching advice for account information.
+Basic # 7 Don’t Be A Glorified Scorekeeper
+“You’re glorified scorekeepers,” I told them.” You aren’t understanding the why. Why deals advance or don’t advance in the sales process. Why a rep is successful or struggling.”
+Basic # 8 Intentional Outcomes – Start with an objective for every meeting.
+Basic # 9 Keep it Simple
+Basic # 10: Urgent Curiosity
+ales Process Benefits
+A sales process should be a map for a sales rep to follow. It should have directions and steps that a rep should perform, from start to finish, to close a deal with tangible evidence that they completed the stage.
+Each stage should have exit criteria based on verifiable customer events.
+Part III The B2B sales Process
+
+18 Sales Process Example
+
+A typical B2B sales process:
+Discovery
+Scoping
+Economic Buyer Meeting
+Validation Event
+Business Case and Final Proposal
+Negotiate and Close
+The competition’s Champion will essentially be our enemy.
+Champions want to attach themselves to the solution of a major business pain.
+Questions can you ask to discover more about your potential client?
+Why do you think this is a problem?
+Why do you think this happens?
+Why do you have to remedy this now?
+When does this occur?
+How often does this occur?
+Have you tried to remedy this previously? How?
+What company measure does this effect?
+Who is held personally accountable for this measure?
+How does this affect your people?
+Can you walk me through your current process?
+Who else is involved in the process?
+How does this affect other processes?
+Who else might this affect?
+How is this issue affecting the company?
+What else does it depend on?
+What is the company’s desired business outcome?
+Immature enterprise sales-forces [aren’t] truly interested in the customer’s issues, they [rush] to present their product and clamoring to drive a POC.
+19 POC Win Rates
+
+(no highlights for this chapter)
+
+20 Ramifications of Skipping Steps
+
+Understand the pain in the customer’s environment, the customer’s business goals and the alignment of your product capabilities to their pains.
+A POC should only occur late in the sales process.
+21 Slow Down to Go Fast
+
+Common Pain Areas
+Regulation
+Competition
+Security
+Productivity, Cost, and Quality
+Reputation
+22 Scoping
+
+Scoping is the second step of a B2B Sales Process. During the Scoping stage, reps take the pain uncovered during Discovery to quantify and implicate that pain.
+Stop saying POC and start saying POV, Proof of Value.
+To ‘Implicate the pain’ is to understand the negative consequences of the customer not solving the problem now… [to identify] who suffers and what suffers.
+The Scoping journey will generate three documents for review:
+A Cost Justification with as-is and to-be metrics
+A POV Plan that directly correlates to the POV criteria and preliminary cost justification
+A Preliminary Pricing Proposal which is a price quote based upon the preliminary cost justification
+23” Box Up”
+
+(no highlights for this chapter)
+
+24 Target Customers
+
+(no highlights for this chapter)
+
+25 Propensity to Buy and Sales Complexity
+
+(no highlights for this chapter)
+
+26 Leading the Witness
+
+“Some salespeople will find pain, but fewer salespeople quantify pain, and only a small minority will ever implicate pain.
+27 Q & A with the Managers
+
+A sales leader only has two things to produce
+Bookings (or revenues)
+People Productivity
+Three main components to determine bookings and headcount for the year:
+Ramp Time
+Average Sales Productivity
+Rep Attrition
+Position Description Categories:
+Knowledge – WHAT TO DO
+Skills – HOW TO DO IT
+Characteristics – smart, intellectually curious, a quiet fighter with extreme competitiveness, unflappable, and courageous
+Execution
+Experience
+These are my top five key positive characteristics:
+Intelligence
+PHD – Persistence, Heart, and Desire
+Coachability and Adaptability
+Integrity
+Curiosity
+Loser’s practice until they get it right, and the winner’s practice until they never get it wrong.
+When someone possesses the combination of high intelligence with off-the-chart competitiveness, adaptability, integrity and curiosity, find a way to hire them.
+A good coach is there to help through the never-ending process of:
+Inspiring
+Coaching and Developing
+Inspecting
+28 With the Sales Reps
+
+(no highlights for this chapter)
+
+29 Finding Champions
+
+Build a 2×2 matrix on the board. Put INFLUENCE on the x-axis and AUTHORITY on the y-axis.
+The first step in finding your Champion is to uncover the power chart in an organization. The power chart defines the influential people in the organization. The people with access to the Economic Buyer.
+People with influence and authority (IA) are your business Champions.
+People with influence but no authority (INA) are your technical Champions.
+30 Why Would Someone Be Your Champion?
+
+Personal wins could be as simple as the following:
+Recognition
+Control
+Productivity
+Promotion
+Status
+31 Earning Trust
+
+When any rep enters a sales opportunity, they have to overcome the natural objections people have which are:
+No pain
+No urgency
+No money
+No trust
+Trust is developed over time through a simple, never-ending process of Asking, Messaging, and Confirming with customers to understand their issues and align to their expectations.
+A Champion evaluates trust through their expectations of value. There are three value elements Champions evaluate:
+Business Value of the Solution
+Performance Value of the Company
+Experience Value of the Salesperson
+32 Educating the Champion
+
+You want to ensure they don’t get caught flat-footed on known product limitations, competitive traps, or implementation impediments.
+You’ll also need to educate your Champion to be an internal sales rep.
+33 Testing the Champion
+
+Questions to Test Champions
+How are items purchased at XYZ company?
+What is the typical evaluation process for new products?
+Who made the last few major purchases?
+Can they help you map out the as-is process?
+Can they detail why the identified company pain could be classified as ”major”?
+Can they explain the implications of not solving the pain?
+How do they see that your solution provides business value?
+How does the competition’s solution provide business value?
+Can they tell you what happened during the meeting with the competition?
+What activities could we ask them to perform?
+Arrange a demonstration to a different department
+Facilitate an introduction to another stakeholder in the decision process
+Share any product evaluation documents
+Call a customer reference
+Sponsor a meeting with the Economic Buyer
+Help you create the POV criteria
+Introduce you to the Legal and Procurement contacts
+Help you craft a cost justification
+Warning: Testing a Champion should only be done at the right time. Too many salespeople “burn” a potential Champion by prematurely asking them to do something before they’ve proved to the potential Champion that they performed their own due diligence and have earned the trust of Champion.
+[If you deal is stalled,] explain to your potential Champion that your boss thinks you’ve been spending too much time at the account. Ask the customer, “Would you have any advice for me? What should I tell my boss?”
+34 How Do You Know You Have a Champion?
+
+Since Champions help you stay in control, the remaining steps in the sales process are predictable.
+ifference Between a Coach and a Champion
+Typically, a coach looks through what I call small eyes of product fit. They speak in technical terms and ask detailed technical questions.
+Coaches provide information but never take action
+A coach can’t be a Champion because they don’t influence others or have access to the Economic Buyer.
+Champions look through the large eyes of business fit.
+36 Economic Buyers Need a Champion
+
+For political reasons, and, more importantly, implementation issues, Economic Buyers don’t want to explicitly endorse your solution and be a visible Champion.
+Every Economic Buyer needs a Champion to ensure they obtain the desired business results post implementation
+37 The Competition’s Champion
+
+It would be even better if we find multiple Champions or Champions higher in the organization to counter the competitor’s Champion.
+he Economic Buyer
+The Economic Buyer (EB) is the person with discretionary use of the funds. That means
+They have discretion over the budget
+They can reallocate budget from one project to another or from one allocated purchase request to another
+They have the authority to make the final decision.
+Reps need to meet the EB prior to the POV, to frame and finalize the evaluation of their product differentiators into the decision criteria.
+You need to ensure that you have agreement on the EB meeting deliverables and the talk track with your Champion prior to the meeting.
+In a typical EB meeting, you need to substantiate the following with the EB:
+A high level summary of your Discovery and Scoping findings
+The company’s current state. The as-is
+The negative consequences of that current state
+Your proposed future state. The to-be
+The benefits of the future state
+The required capabilities to achieve that future state
+Customer success stories with quantified before/after metrics
+High level description of your solution based on the criteria
+Confirmation of the remaining decision-process steps
+Don’t explain business issues they already know. Instead, inform them about a business issue they didn’t consider.
+Link your solution to affect the company’s revenues, costs, and risks at the corporate level and their personal job measures like time to market, employee productivity and application quality and security.
+Question to Ask the Economic Buyer
+Where in your priority list does this particular problem rank?
+What specific business measure does this issue most effect?
+When would you prefer to solve this issue?
+Would you be willing to allocate budget for $ Y? E.g., If we could prove during the Validation Event that we could save your company $ X for an investment of $ Y, would you allocate $ Y budget?
+Besides yourself, is there anyone else required to approve a purchase of this size?
+If we are successful in the POV, what would be the remaining steps in your decision process?
+There is one final question I like to ask before I leave their office: Would it be OK to call you under only two conditions?
+After the validation event, if we recognize that our final business case is materially different than the preliminary justification.
+If anyone decides to significantly change our agreed validation criteria prior to the POV.
+39 The Tree
+
+The key is to start higher in the tree.”
+40 Sales Manager Advice
+
+If you want to develop your reps, ask the tough questions early in the quarter.
+Being consistent in training your reps by continually asking them qualification questions when they return from a sales call without you. Over time, they’ll understand the pain of continually facing you without the answers to your account questions. They’ll find pleasure in developing the courage and skill to ask the customer the questions.
+There is nothing worse than leaders that make excuses for their team’s performance based on the things they can’t control.
+41 Caring Through Competence
+
+Caring means making people competent. Competence is the precursor to winning. Winning is the precursor to pride. Pride is what people want.
+42 Validation Event
+
+You have to define the POV criteria to ensure alignment with your product strengths. If the criteria are not aligned to your strengths, you won’t win the POV.
+When it comes to the validation event, agreeing with the customer on the criteria, the weighting of every element of the criteria, and the scoring of each element, in writing, prior to the event is critical.
+Only perform a validation event after you have verified the priority, budget, authority, timing, and remaining process steps with the Economic Buyer.
+Business Case
+A Business Case is the formal, face-to-face presentation of the final results to the Economic Buyer. It should include everything you need for the meeting:
+Their corporate objectives
+Their strategic initiatives
+The business problem or opportunity
+Descriptions of the before and after use-case scenarios
+Final cost justification
+Express the Business Case in the particular way your customer expresses business value.
+You also need to present an Implementation Plan. A well-thought-out Implementation Plan decreases risk and increases the odds of achieving the success outlined in the Business Case.
+44 Negotiate and Close
+
+When confronted on price, be patient. You have time.
+Their business doesn’t have time. They have a prioritized business need to solve the negative consequences now.
+45 Role Models
+
+You’ll need to hold [everyone] accountable or you’ll lose the high performing members of your team.
+I’ve told my team that we can’t operate as a team if everyone doesn’t adhere to a minimum set of operating standards.
+Show up to meetings on time.
+Always be prepared.
+Show respect to other team members.
+Consistently give 100 percent effort.
+Forecast updates to CRM system every Friday by 5: 00 p.m.
+Obtain required knowledge to understand and articulate needed variables such as:
+The top competitive solution differentiators
+The competitors’ top differentiators
+The buyers’ top pain points and business issues
+Three customer success stories with dollar metrics
+Top three customer value drivers for our solution
+Be able to skillfully present product knowledge such as:
+The corporate overview
+Thirty-second elevator pitch
+A flawless whiteboard pitch
+Answers to the top-ten most common objections
+A list of the top-ten Discovery questions
+A list of the top-ten Scoping questions
+Part IV Analyzing Deal Progression
+
+46 Analyzing Sales Effectiveness
+
+Every sales manager needs a sales process (or playbook) that is tightly coupled with a qualification method (analysis capability)
+The qualification method informs the sales rep of their exact location in the sales process and gives instruction on the next steps.
+47 Identify the Pain, Problem, or Initiative
+
+The Three WHYs:
+Why do they have to buy?
+Why do they have to buy from us?
+Why do they have to buy now? – Is there an impending event forcing them to buy now?
+[Testing] ‘Why do THEY have to buy?’ reveals whether or not your rep identified the pain and the associated buyer most impacted by the pain during the Discovery stage.
+48 Metrics: The Quantification of Pain and the Solution
+
+(no highlights for this chapter)
+
+49 Decision Criteria
+
+You can tell if your rep is gaining or losing control by monitoring specific changes to the decision criteria:
+50 Decision Process
+
+(no highlights for this chapter)
+
+51 Champions
+
+During any forecast review, when a deal is at the mid-stages of the sales process, qualify whether or not your rep is in control.
+If your rep doesn’t have a Champion and can’t describe the decision criteria and process in detail, the rep is still in the Scoping stage and not in control.
+52 Economic Buyer
+
+My preference is for a sales leader to be in every EB meeting to help the sales rep during the meeting and build a relationship with the EB and Champion.
+53 Competition
+
+Your reps should always be concerned, maybe even paranoid, with the movements of their competitors in a forecasted account.
+[Be vigilant to] recognize competitive criteria changes?
+You must be knowledgeable of the strengths of your competitors’ products and how they position their key differentiators.
+The other way to counter a competitive Champion is to find multiple Champions, both wide and high in the account
+aper Process (Or Signature/Approval Process)
+If your Champion doesn’t know the signature process it may be an indicator that they aren’t a Champion or it’s possible they’re a first-time Champion (they’ve never been through the process or bought anything for the dollar amount you’ve requested)
+It’s also important to get contracts from both Legal and Procurement from your Champion.
+55 End of the Quarter
+
+(no highlights for this chapter)
+
+Part V Forecasting Strategy
+
+56 Forecasting
+
+(no highlights for this chapter)
+
+57 Forecasting Qualification Strategy
+
+If you’ve exhausted your qualifying questions and, for some reason, your rep can’t articulate the exact status of the deal, push it off the forecast.
+If we assume that reps have a sales process to follow and understand how to sell and qualify, then low forecasts are always due to low pipeline activity.
+Maniacally qualifying deals early in the quarter by visiting the Champions of your reps’ forecasted deals in the first month of a quarter is one of the surest methods of gaining a deep understanding of your forecast.

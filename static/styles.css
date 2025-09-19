@@ -1,23 +1,32 @@
 /* static/styles.css */
+
 :root {
-    --bg-color: #f8f9fa;
-    --text-color: #212529;
-    --primary-color: #007bff;
-    --primary-hover: #0056b3;
-    --secondary-color: #6c757d;
-    --secondary-hover: #5a6268;
-    --border-color: #dee2e6;
-    --panel-bg: #ffffff;
-    --code-bg: #e9ecef;
-    --explanation-bg: #f1f3f5;
-    --font-family: 'Inter', sans-serif;
-    --code-font-family: 'Source Code Pro', monospace;
+    /* FONT FAMILIES */
+    --font-serif: "MongoDB Value Serif", "Times New Roman", serif;
+    --font-sans: "Euclid Circular A", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+    /* MONGODB COLORS */
+    --mongodb-white: #FFFFFF;
+    --mongodb-black: #001E2B;
+    --mongodb-gray-dark3: #1C2D38;
+    --mongodb-gray-dark2: #3D4F58;
+    --mongodb-gray-dark1: #5C6C75;
+    --mongodb-gray-base: #889397;
+    --mongodb-gray-light2: #E8EDEB;
+    --mongodb-gray-light3: #F9FBFA;
+    --mongodb-green-dark3: #023430;
+    --mongodb-green-dark2: #00684A;
+    --mongodb-green-dark1: #00A35C;
+    --mongodb-green-base: #00ED64;
+    --mongodb-green-light1: #71F6BA;
+    --mongodb-green-light2: #C0FAE6;
+    --mongodb-green-light3: #E3FCF7;
 }
 
 body {
-    font-family: var(--font-family);
-    background-color: var(--bg-color);
-    color: var(--text-color);
+    font-family: var(--font-sans);
+    background-color: var(--mongodb-gray-light3);
+    color: var(--mongodb-gray-dark3);
     line-height: 1.6;
     margin: 0;
     padding: 20px;
@@ -32,33 +41,56 @@ body {
 header {
     text-align: center;
     margin-bottom: 40px;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--mongodb-gray-light2);
     padding-bottom: 20px;
 }
 
-h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
-h2 { color: var(--primary-color); border-bottom: 2px solid var(--primary-color); padding-bottom: 10px; margin-bottom: 20px; }
-h3 { font-size: 1.2rem; font-weight: 500; margin-bottom: 10px; }
+h1, h2 {
+    font-family: var(--font-serif);
+}
+
+h1 { 
+    font-size: 2.8rem; 
+    margin-bottom: 0.5rem;
+    color: var(--mongodb-black);
+    font-weight: 600;
+}
+
+h2 { 
+    color: var(--mongodb-green-dark2); 
+    border-bottom: 2px solid var(--mongodb-green-base); 
+    padding-bottom: 10px; 
+    margin: 0 0 25px 0;
+    font-weight: 600;
+}
+
+h3 { 
+    font-size: 1.2rem; 
+    font-weight: 500; 
+    margin-bottom: 10px;
+    color: var(--mongodb-green-dark3);
+}
 
 .workflow-section {
-    background-color: var(--panel-bg);
-    border: 1px solid var(--border-color);
+    background-color: var(--mongodb-white);
+    border: 1px solid var(--mongodb-gray-light2);
     border-radius: 8px;
-    padding: 25px;
+    padding: 30px;
     margin-bottom: 30px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 12px rgba(0, 30, 43, 0.05);
 }
 
 .step { margin-bottom: 30px; }
 
 .explanation {
-    background-color: var(--explanation-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 5px;
-    padding: 12px;
+    background-color: var(--mongodb-green-light3);
+    border-left: 4px solid var(--mongodb-green-light1);
+    border-radius: 4px;
+    padding: 12px 18px;
     margin-bottom: 15px;
     font-size: 0.95rem;
     line-height: 1.5;
+    color: var(--mongodb-gray-dark2);
 }
 
 .controls {
@@ -69,33 +101,48 @@ h3 { font-size: 1.2rem; font-weight: 500; margin-bottom: 10px; }
 }
 
 button {
-    background-color: var(--primary-color);
-    color: white;
+    background-color: var(--mongodb-green-base);
+    color: var(--mongodb-green-dark3);
     border: none;
     padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
-    font-family: var(--font-family);
+    font-family: var(--font-sans);
     font-size: 0.9rem;
-    font-weight: 500;
-    transition: background-color 0.2s;
+    font-weight: 600;
+    transition: all 0.2s;
 }
 
-button:hover:not(:disabled) { background-color: var(--primary-hover); }
-button:disabled { background-color: #a0c3e6; cursor: not-allowed; }
+button:hover:not(:disabled) { 
+    background-color: var(--mongodb-green-light1);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 30, 43, 0.1);
+}
+
+button:disabled { 
+    background-color: var(--mongodb-green-light2); 
+    color: var(--mongodb-gray-base);
+    cursor: not-allowed; 
+}
 
 input[type="file"], input[type="text"] {
     padding: 10px;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--mongodb-gray-light2);
     border-radius: 5px;
     font-size: 1rem;
-    font-family: var(--font-family);
+    font-family: var(--font-sans);
     flex-grow: 1;
+    transition: border-color 0.2s;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: var(--mongodb-green-dark1);
 }
 
 .output-panel, .final-answer-panel {
-    background-color: var(--panel-bg);
-    border: 1px solid var(--border-color);
+    background-color: var(--mongodb-white);
+    border: 1px solid var(--mongodb-gray-light2);
     border-radius: 5px;
     padding: 0;
     font-family: var(--code-font-family);
@@ -107,16 +154,24 @@ input[type="file"], input[type="text"] {
     justify-content: flex-end;
     align-items: center;
     padding: 5px 10px;
-    background-color: var(--code-bg);
-    border-bottom: 1px solid var(--border-color);
+    background-color: var(--mongodb-gray-light3);
+    border-bottom: 1px solid var(--mongodb-gray-light2);
+    border-radius: 5px 5px 0 0;
 }
 
 .toggle-view-btn {
     font-size: 0.75rem;
     padding: 4px 8px;
-    background-color: var(--secondary-color);
+    background-color: var(--mongodb-gray-dark1);
+    color: var(--mongodb-white);
+    font-weight: 500;
 }
-.toggle-view-btn:hover:not(:disabled) { background-color: var(--secondary-hover); }
+
+.toggle-view-btn:hover:not(:disabled) { 
+    background-color: var(--mongodb-gray-dark2); 
+    transform: none;
+    box-shadow: none;
+}
 
 .output-panel pre {
     margin: 0;
@@ -125,13 +180,16 @@ input[type="file"], input[type="text"] {
     word-wrap: break-word;
     max-height: 400px;
     overflow-y: auto;
-    background-color: #fdfdfd;
+    background-color: var(--mongodb-white);
+    color: var(--mongodb-gray-dark2);
 }
 
 .final-answer-panel {
     padding: 15px;
-    background-color: #e6f7ff;
-    font-family: var(--font-family);
+    background-color: var(--mongodb-green-light3);
+    border: 1px solid var(--mongodb-green-light2);
+    font-family: var(--font-sans);
+    color: var(--mongodb-green-dark3);
     font-size: 1rem;
     line-height: 1.7;
 }
@@ -142,7 +200,7 @@ input[type="file"], input[type="text"] {
 
 .switch { position: relative; display: inline-block; width: 50px; height: 28px; }
 .switch input { opacity: 0; width: 0; height: 0; }
-.slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; border-radius: 28px; }
+.slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: var(--mongodb-gray-light1); transition: .4s; border-radius: 28px; }
 .slider:before { position: absolute; content: ""; height: 20px; width: 20px; left: 4px; bottom: 4px; background-color: white; transition: .4s; border-radius: 50%; }
-input:checked + .slider { background-color: var(--primary-color); }
+input:checked + .slider { background-color: var(--mongodb-green-dark1); }
 input:checked + .slider:before { transform: translateX(22px); }

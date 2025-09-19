@@ -211,20 +211,59 @@ document.addEventListener('DOMContentLoaded', () => {
                         snippetData = createSnippet('retrieval', data);
                         showOutput('retrieval', snippetData.full, snippetData.snippet);
                         break;
-                    case 3: // Rerank
-                        if (!state.useReranking) return;
+                        case 3: // Rerank
+                        if (!state.useReranking) {
+                            // This case should not be reachable if UI is locked correctly, but as a safeguard:
+                            unlockNextStep(stepIndex);
+                            return; 
+                        }
+                        
                         data = await apiCall('/query/rerank', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ query: state.query, documents: state.retrievedDocs }) });
-                        state.rerankedDocs = data.api_response.results.map(r => ({ ...state.retrievedDocs[r.index], rerank_score: r.relevance_score }));
+                        
+                        // --- CORRECTED LOGIC ---
+                        // Reconstruct the reranked documents array safely, preserving all original data.
+                        const newRerankedDocs = [];
+                        if (data && data.api_response && data.api_response.results) {
+                            for (const reranked_item of data.api_response.results) {
+                                // Find the original full document using the index from the reranker
+                                const originalDoc = state.retrievedDocs[reranked_item.index];
+                                if (originalDoc) {
+                                    // Create a new object that includes all original data plus the new rerank score
+                                    const newDoc = {
+                                        ...originalDoc,
+                                        rerank_score: reranked_item.relevance_score
+                                    };
+                                    newRerankedDocs.push(newDoc);
+                                }
+                            }
+                        }
+                        state.rerankedDocs = newRerankedDocs;
+                        
                         snippetData = createSnippet('reranking', data);
                         showOutput('reranking', snippetData.full, snippetData.snippet);
                         break;
                     case 4: // Prompt Construction
-                        const docsForPrompt = state.useReranking && state.rerankedDocs.length > 0 ? state.rerankedDocs : state.retrievedDocs;
-                        data = await apiCall('/query/build-prompt', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ query: state.query, documents: docsForPrompt }) });
-                        state.finalPrompt = data.prompt;
-                        snippetData = createSnippet('promptConstruction', data);
-                        showOutput('promptConstruction', snippetData.full, snippetData.snippet);
-                        break;
+                    let docsForPrompt = state.retrievedDocs; // Default to the original documents
+                    if (state.useReranking) {
+                        if (state.rerankedDocs && state.rerankedDocs.length > 0) {
+                            docsForPrompt = state.rerankedDocs;
+                        } else {
+                            // This case can happen if the Rerank button hasn't been clicked yet.
+                            // We log a warning but still proceed with the original docs.
+                            console.warn("Reranking is enabled, but no reranked documents found. Using original retrieved documents for prompt.");
+                        }
+                    }
+                    
+                    if (docsForPrompt.length === 0) {
+                        alert("No documents found to construct the prompt. Please run the Retrieval step first.");
+                        return; // Stop execution if there's no context
+                    }
+
+                    data = await apiCall('/query/build-prompt', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ query: state.query, documents: docsForPrompt }) });
+                    state.finalPrompt = data.prompt;
+                    snippetData = createSnippet('promptConstruction', data);
+                    showOutput('promptConstruction', snippetData.full, snippetData.snippet);
+                    break;
                     case 5: // Final Answer
                         data = await apiCall('/query/generate', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ prompt: state.finalPrompt }) });
                         queryElem('.step[data-step-name="finalAnswer"] .final-answer-panel').textContent = data.final_answer;
