@@ -18,21 +18,29 @@
 
         <section class="workflow-section">
             <h2>1. Document Ingestion</h2>
-            <div class="step">
+            <div class="step" data-step-name="chunking">
                 <h3>Step 1.1: Upload & Chunk Document</h3>
+                <div class="explanation">This first step reads your uploaded text file and splits it into smaller, overlapping chunks. This is crucial because language models have a limited context window, and it allows for more precise retrieval of relevant information.</div>
                 <div class="controls">
                     <input type="file" id="documentUpload" accept=".txt,.md">
-                    <button id="runChunkingBtn">Run Chunking</button>
+                    <button id="runChunkingBtn">Chunk Document</button>
                 </div>
-                <div class="output-panel" id="chunkingOutput"><pre><code>Output will appear here...</code></pre></div>
+                <div class="output-panel">
+                    <div class="output-header"><button class="toggle-view-btn">Show Full</button></div>
+                    <pre><code>Output will appear here...</code></pre>
+                </div>
             </div>
-            <div class="step">
+            <div class="step" data-step-name="embeddingInsertion">
                 <h3>Step 1.2: Embed & Insert Chunks</h3>
+                <div class="explanation">Each text chunk is sent to the Voyage AI API to be converted into a numerical vector (an embedding). This vector represents the chunk's semantic meaning. The chunk text and its vector are then stored together in the MongoDB database.</div>
                 <div class="controls">
-                    <button id="runEmbeddingInsertionBtn" disabled>Run Embedding & Insertion</button>
+                    <button id="runEmbeddingInsertionBtn" disabled>Embed & Insert All</button>
                     <div id="insertionProgress"></div>
                 </div>
-                <div class="output-panel wide" id="embeddingInsertionOutput"><pre><code>Outputs will stream here...</code></pre></div>
+                <div class="output-panel wide">
+                     <div class="output-header"><button class="toggle-view-btn">Show Full</button></div>
+                    <pre><code>Outputs will stream here...</code></pre>
+                </div>
             </div>
         </section>
 
@@ -42,41 +50,65 @@
                 <input type="text" id="queryInput" placeholder="Ask a question about your documents...">
             </div>
             <div class="toggles">
-                 <label class="switch">
-                    <input type="checkbox" id="hybridSearchToggle">
-                    <span class="slider"></span>
-                </label>
-                <span>Hybrid Search (Conceptual)</span>
-
-                <label class="switch">
-                    <input type="checkbox" id="rerankingToggle">
-                    <span class="slider"></span>
-                </label>
-                <span>Reranking</span>
-            </div>
-             <div class="controls">
-                <button id="runQueryBtn">Run Full Query Pipeline</button>
+                 <label class="switch"><input type="checkbox" id="rerankingToggle"><span class="slider"></span></label>
+                <span>Enable Reranking</span>
             </div>
 
-            <div class="step">
+            <div class="step query-step" data-step-index="1" data-step-name="queryEmbedding">
                 <h3>Step 2.1: Embed Query</h3>
-                <div class="output-panel" id="queryEmbeddingOutput"><pre><code>Output will appear here...</code></pre></div>
+                <div class="explanation">Your question is converted into a numerical vector using the same Voyage AI embedding model. This allows us to mathematically compare your query's meaning to the meaning of the document chunks stored in the database.</div>
+                <div class="controls">
+                    <button class="run-step-btn" disabled>Embed Query</button>
+                </div>
+                <div class="output-panel">
+                    <div class="output-header"><button class="toggle-view-btn">Show Full</button></div>
+                    <pre><code>Output will appear here...</code></pre>
+                </div>
             </div>
-            <div class="step">
+
+            <div class="step query-step" data-step-index="2" data-step-name="retrieval">
                 <h3>Step 2.2: Retrieve from MongoDB</h3>
-                <div class="output-panel wide" id="retrievalOutput"><pre><code>Output will appear here...</code></pre></div>
+                 <div class="explanation">The query vector is sent to MongoDB Atlas. A Vector Search is performed to find the document chunks with embedding vectors that are most similar (closest) to the query vector. These are the chunks most likely to contain the answer.</div>
+                <div class="controls">
+                    <button class="run-step-btn" disabled>Retrieve Documents</button>
+                </div>
+                <div class="output-panel wide">
+                    <div class="output-header"><button class="toggle-view-btn">Show Full</button></div>
+                    <pre><code>Output will appear here...</code></pre>
+                </div>
             </div>
-            <div class="step" id="rerankingStep" style="display: none;">
+
+            <div class="step query-step" id="rerankingStep" data-step-index="3" data-step-name="reranking" style="display: none;">
                 <h3>Step 2.3: Rerank with Voyage AI</h3>
-                <div class="output-panel wide" id="rerankingOutput"><pre><code>Output will appear here...</code></pre></div>
+                <div class="explanation">While vector search is good at finding semantically relevant documents, a Reranker model is specialized in taking a small set of documents and re-ordering them based on their true relevance to the query. This adds a layer of precision.</div>
+                <div class="controls">
+                    <button class="run-step-btn" disabled>Rerank Documents</button>
+                </div>
+                <div class="output-panel wide">
+                    <div class="output-header"><button class="toggle-view-btn">Show Full</button></div>
+                    <pre><code>Output will appear here...</code></pre>
+                </div>
             </div>
-            <div class="step">
-                <h3 id="promptStepTitle">Step 2.4: Construct LLM Prompt</h3>
-                <div class="output-panel wide" id="promptOutput"><pre><code>Output will appear here...</code></pre></div>
+
+            <div class="step query-step" data-step-index="4" data-step-name="promptConstruction">
+                <h3 class="step-title">Step 2.X: Construct LLM Prompt</h3>
+                <div class="explanation">The top-ranked document chunks are combined with your original question into a single, detailed prompt. This prompt instructs the Large Language Model (LLM) on how to use the provided context to form an accurate answer.</div>
+                <div class="controls">
+                    <button class="run-step-btn" disabled>Construct Prompt</button>
+                </div>
+                <div class="output-panel wide">
+                    <div class="output-header"><button class="toggle-view-btn">Show Full</button></div>
+                    <pre><code>Output will appear here...</code></pre>
+                </div>
             </div>
-            <div class="step">
-                <h3 id="generationStepTitle">Step 2.5: Final Generation from LLM</h3>
-                <div class="final-answer-panel" id="finalAnswerOutput">Final answer will appear here...</div>
+
+            <div class="step query-step" data-step-index="5" data-step-name="finalAnswer">
+                <h3 class="step-title">Step 2.Y: Final Generation from LLM</h3>
+                <div class="explanation">The final prompt is sent to the locally running Ollama LLM. The model synthesizes the information from the provided documents to generate a coherent answer, grounding its response in the source material.</div>
+                <div class="controls">
+                    <button class="run-step-btn" disabled>Generate Answer</button>
+                </div>
+                <div class="final-answer-panel">Final answer will appear here...</div>
             </div>
         </section>
     </div>

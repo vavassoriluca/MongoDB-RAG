@@ -121,8 +121,8 @@ async def embed_chunk(request: EmbedRequest):
     """Step 2: Embed a single text chunk."""
     try:
         # Using input_type="document" is crucial for retrieval quality
-        result = vo.embed([request.chunk_text], model="voyage-large-2-instruct", input_type="document")
-        return {"api_response": result.dict()}
+        result = vo.embed([request.chunk_text], model="voyage-3-large", input_type="document")
+        return {"api_response": result}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
@@ -154,82 +154,104 @@ async def embed_query(request: QueryEmbedRequest):
     """Step 1: Embed the user's query."""
     try:
         # Using input_type="query" is crucial for retrieval quality
-        result = vo.embed([request.query], model="voyage-large-2-instruct", input_type="query")
-        return {"api_response": result.dict()}
+        result = vo.embed([request.query], model="voyage-3-large", input_type="query")
+        return {"api_response": result}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.post("/api/query/retrieve")
 async def retrieve_documents(request: RetrieveRequest):
-    """Step 2: Retrieve documents from MongoDB using vector search."""
+    """Step 2: Retrieve documents from MongoDB using vector search (or hybrid search)."""
     try:
-        # Vector search pipeline
-        vector_search_pipeline = [
-            {
-                "$vectorSearch": {
-                    "index": "vector_index",
-                    "path": "embedding",
-                    "queryVector": request.query_embedding,
-                    "numCandidates": 100,
-                    "limit": 10,
-                }
-            },
-            {
-                "$project": {
-                    "_id": 0,
-                    "text": 1,
-                    "source": 1,
-                    "score": {"$meta": "vectorSearchScore"},
-                }
-            },
-        ]
-
-        # Full-text search pipeline (for hybrid comparison)
-        # Note: Requires a separate Atlas Search index named 'full_text_index'
-        # on the 'text' field.
-        full_text_search_pipeline = [
-           {
-                "$search": {
-                    "index": "full_text_index", # Assumes a search index is created
-                    "text": {
-                        "query": "placeholder_query", # Query will be replaced
-                        "path": "text"
+        if not request.use_hybrid_search:
+            # --- Vector Search Only Pipeline ---
+            pipeline = [
+                {
+                    "$vectorSearch": {
+                        "index": "vector_index",
+                        "path": "embedding",
+                        "queryVector": request.query_embedding,
+                        "numCandidates": 100,
+                        "limit": 10,
                     }
-                }
-            },
-            {
-                "$project": {
-                    "_id": 0,
-                    "text": 1,
-                    "source": 1,
-                    "score": { "$meta": "searchScore" }
-                }
-            }
-        ]
-
-
-        if request.use_hybrid_search:
-             # This is a simplified hybrid approach: run vector and text search, then merge.
-             # A more advanced approach might use a single aggregation pipeline.
-             # This part is left as a placeholder to demonstrate the concept.
-             # For this demo, we will just return vector search results for both cases
-             # but show a different pipeline for educational purposes.
-            pipeline_to_show = {
-                "description": "This is a conceptual pipeline. For this demo, we only execute the vector search portion.",
-                "hybrid_pipeline": [
-                    {"$vectorSearch": vector_search_pipeline[0]["$vectorSearch"]},
-                    {"$unionWith": {"coll": COLLECTION_NAME, "pipeline": full_text_search_pipeline}},
-                    {"$group": {"_id": "$text", "doc": {"$first": "$$ROOT"}}},
-                    {"$replaceRoot": {"newRoot": "$doc"}},
-                    {"$limit": 10}
-                ]
-            }
-            results = list(collection.aggregate(vector_search_pipeline))
+                },
+                {
+                    "$project": {
+                        "_id": 0,
+                        "text": 1,
+                        "source": 1,
+                        "score": {"$meta": "vectorSearchScore"},
+                    }
+                },
+            ]
+            results = list(collection.aggregate(pipeline))
+            return {"pipeline": pipeline, "results": results}
         else:
-            pipeline_to_show = vector_search_pipeline
-            results = list(collection.aggregate(vector_search_pipeline))
+            # --- Hybrid Search Pipeline ---
+            # This pipeline runs a vector search and a text search in parallel,
+            # then merges and de-duplicates the results.
+            pipeline = [
+                # 1. Vector Search Stage
+                {
+                    '$vectorSearch': {
+                        'index': 'vector_index',
+                        'path': 'embedding',
+                        'queryVector': request.query_embedding,
+                        'numCandidates': 100,
+                        'limit': 5
+                    }
+                },
+                # 2. Project the score and data
+                {
+                    '$project': {
+                        'score': { '$meta': 'vectorSearchScore' },
+                        'text': 1,
+                        'source': 1
+                    }
+                },
+                # 3. Union with a parallel full-text search query
+                {
+                    '$unionWith': {
+                        'coll': COLLECTION_NAME,
+                        'pipeline': [
+                            {
+                                '$search': {
+                                    'index': 'full_text_index',
+                                    'text': { 'query': "placeholder_query", 'path': 'text' } # We need the query text here
+                                }
+                            },
+                            {
+                                '$project': {
+                                    'score': { '$meta': 'searchScore' },
+                                    'text': 1,
+                                    'source': 1
+                                }
+                            }
+                        ]
+                    }
+                },
+                # 4. De-duplicate the results by grouping
+                {
+                    '$group': {
+                        '_id': '$text',
+                        'docs': { '$first': '$$ROOT' }
+                    }
+                },
+                { '$replaceRoot': { 'newRoot': '$docs' } },
+                { '$limit': 10 }
+            ]
+            # To make this fully work, you need the original query text passed to this endpoint
+            # to replace "placeholder_query". For now, this structure demonstrates the method.
+            
+            # Since the original RetrieveRequest doesn't include the query text, we'll run a standard
+            # vector search for now but return the hybrid pipeline for display.
+            # For a real implementation, you would pass the query text to this function.
+            
+            vector_only_pipeline = pipeline[0:2] # Execute only the vector part for the demo
+            results = list(collection.aggregate(vector_only_pipeline))
+            
+            return {"pipeline": pipeline, "results": results}
 
-        return {"pipeline": pipeline_to_show, "results": results}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
@@ -244,10 +266,10 @@ async def rerank_documents(request: RerankRequest):
         result = vo.rerank(
             query=request.query,
             documents=docs_to_rerank,
-            model="rerank-lite-1", # Using a lighter model for speed
+            model="rerank-2.5-lite", # Using a lighter model for speed
             top_k=5, # Return top 5 most relevant
         )
-        return {"api_response": result.dict()}
+        return {"api_response": result}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
@@ -270,7 +292,7 @@ Answer:"""
     return {"prompt": prompt}
 
 @app.post("/api/query/generate")
-async def generate_answer(request: Body(...)):
+async def generate_answer(request: dict):
     """Step 5: Call Ollama to generate the final answer."""
     try:
         prompt = request.get("prompt")
